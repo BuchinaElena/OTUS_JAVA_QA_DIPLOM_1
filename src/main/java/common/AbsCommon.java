@@ -27,4 +27,5 @@ public abstract class AbsCommon extends AllLocatorWishList {
     public List<WebElement> $$$(By locator){
         return driver.findElements(locator);
     }
+
 }

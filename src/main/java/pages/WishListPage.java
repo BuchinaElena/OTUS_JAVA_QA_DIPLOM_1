@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.util.List;
@@ -19,8 +20,8 @@ public class WishListPage extends AbsBasePage{
 
     public String check(String number){
         WebElement card = getCard(number);
-        String getName = card.findElement(nameGiftInput).getText();
-        String getDescription = card.findElement(descriptionGiftInput).getText();
+        String getName = card.findElement(By.xpath(".//div[@class='card-title h5']")).getText();
+        String getDescription = card.findElement(By.xpath("(.//p[@class='card-text'])[1]")).getText();
         return String.format("Название: %s \n Описание: %s", getName, getDescription);
     }
 
@@ -30,15 +31,11 @@ public class WishListPage extends AbsBasePage{
     }
 
     public List<WebElement> quantitiesCard(){
-        List<WebElement> cards = $$$(cardInput);
-        return cards;
+        return $$$(cardInput);
     }
 
     public WebElement getCard(String number){
         return quantitiesCard().get(Integer.parseInt(number));
     }
-
-
-    //     driver.switchTo().alert().accept();
 
 }

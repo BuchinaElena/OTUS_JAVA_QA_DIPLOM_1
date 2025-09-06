@@ -14,6 +14,18 @@ public class WishBoardTest extends AbsBaseTestSuite{
     String number = System.getProperty("base.number");
     String nameGift = System.getProperty("base.nameGift");
     String descriptionGift = System.getProperty("base.descriptionGift");
+/*
+    private void getQuantities(String command, List<WebElement> quantities) {
+
+            if ((quantities.size() > 0) && (Integer.parseInt(number) <= quantities.size())) {
+                String cads = command;
+                logger.info(cads);
+
+            } else {
+                logger.info("Такого желания нет");
+            }
+
+    }*/
 
     @Test
     public void createGiftWebForm() {
@@ -35,16 +47,12 @@ public class WishBoardTest extends AbsBaseTestSuite{
         logger.info("Коннект к к браузеру с помощью выбранного драйвера");
         MainPage mainPage = new MainPage(driver);
         mainPage.open();
-
         logger.info("Авторизация");
         LoginPage loginPage = new LoginPage(driver, "login");
         loginPage.login(useLogin,usePassword);
-
         logger.info("Подсчитывание колличества позиций");
         WishListPage wishListPage = new WishListPage(driver, "wishlists");
-
         List<WebElement> quantities = wishListPage.quantitiesCard();
-
         logger.info(quantities);
 
         if((quantities.size()>0) && (Integer.parseInt(number)<=quantities.size())){
@@ -116,12 +124,3 @@ public class WishBoardTest extends AbsBaseTestSuite{
         addGiftPage.deleteList(number);
     }
 }
-/*
-
-        Assertions.assertEquals(password,confirm_password);
-
-        logger.info("Форма заполнена, считываем cообщение");
-        String textWithForm = outputPage.output();
-        logger.info(textWithForm);
-        String textForm = loginPage.getValues();
-        Assertions.assertEquals(textForm,textWithForm);*/

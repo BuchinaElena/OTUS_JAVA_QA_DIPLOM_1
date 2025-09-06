@@ -16,8 +16,8 @@ public class AllLocatorWishList {
     public By createButtonInput = By.xpath("//button[@type='submit']");
     public By deleteButtonInput = By.xpath("//*[text()='Удалить']");
     public By cardInput = By.xpath("//*[@class='card']");
-    public By nameGiftInput = By.xpath("//*[@class='card-title h5']");
-    public By descriptionGiftInput = By.xpath("//*[@class='card-text']");
+  //  public By nameGiftInput = By.xpath(".//div[@class='card-title h5']");
+  //  public By descriptionGiftInput = By.xpath("(.//p[@class='card-text'])[1]");
     public By urlShop = By.xpath("//input[@placeholder='https://example.com/product']");
     public By urlImage = By.xpath("//input[@placeholder='https://example.com/image.jpg']");
     public By price = By.xpath("//input[@type='number']");
